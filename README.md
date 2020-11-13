@@ -28,7 +28,6 @@ const transaction =  {
       };
 await window.filecoin.sendTransaction(transaction);
 
-```
 // RequestSignature
 const transaction =  {
         from: this.account.address,//转出账户地址
