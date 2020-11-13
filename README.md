@@ -14,19 +14,19 @@ const account = await window.filecoin.login();
 // returns {}
 await window.filecoin.logout();
 
-// Sign Transaction
+// Send Transaction
 const transaction =  {
         from: this.account.address,//转出账户地址
         gasPremium: "10000",//在app端广播交易时可选,字符串类型
         gasFeeCap:"10000",//在app端广播交易时可选,字符串类型
         nonce: 0,//在app端广播交易时可选,number
-        gasLimit: 2200000,//固定即可
+        gasLimit: 2200000,
         to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",//字符串类型
         value: "1000000000000000000", // 精度18,字符串类型
-        method: 0,//固定即可
-        params: ""//固定即可
+        method: 0,
+        params: ""
       };
-await window.filecoin.requestSignature(transaction);
+await window.filecoin.sendTransaction(transaction);
 
 ```
 
