@@ -15,7 +15,14 @@
           <v-card-title>Transaction</v-card-title>
           <v-card-subtitle>{{txId?txId:""}}</v-card-subtitle>
           <v-card-actions>
-            <v-btn class="success" @click="sendTransaction">Signature</v-btn>
+            <v-btn class="success" @click="sendTransaction">Transaction</v-btn>
+          </v-card-actions>
+        </v-card>
+        <v-card light class="mt-2" v-if="account">
+          <v-card-title>Signature</v-card-title>
+          <v-card-subtitle>{{signature?JSON.stringify(signature):""}}</v-card-subtitle>
+          <v-card-actions>
+            <v-btn class="success" @click="requestSignature">Signature</v-btn>
           </v-card-actions>
         </v-card>
       </v-container>
@@ -29,7 +36,8 @@ export default {
   data() {
     return {
       account: null,
-      txId: null
+      txId: null,
+      signature: null
     };
   },
   methods: {
@@ -47,7 +55,27 @@ export default {
         this.account = account;
       });
     },
-    requestSignature() {
+    requestSignature(){
+      if (!this.account) {
+        alert("Please log in first!");
+        return;
+      }
+      let transaction = {
+        from: this.account.address,
+        gasPremium: "10000",
+        gasFeeCap: "10000",
+        gasLimit:2200000,
+        nonce: 0,
+        to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",
+        value: "1000000000000000000", // 精度18
+        method: 0,
+        params: ""
+      };
+      window.filecoin.sendTransaction(transaction).then(signature => {
+        this.signature = signature;
+      });
+    },
+    sendTransaction() {
       if (!this.account) {
         alert("Please log in first!");
         return;

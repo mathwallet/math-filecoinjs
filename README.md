@@ -14,7 +14,7 @@ const account = await window.filecoin.login();
 // returns {}
 await window.filecoin.logout();
 
-// Send Transaction
+// SendTransaction
 const transaction =  {
         from: this.account.address,//转出账户地址
         gasPremium: "10000",//在app端广播交易时可选,字符串类型
@@ -29,7 +29,21 @@ const transaction =  {
 await window.filecoin.sendTransaction(transaction);
 
 ```
+// RequestSignature
+const transaction =  {
+        from: this.account.address,//转出账户地址
+        gasPremium: "10000",//必传,字符串类型
+        gasFeeCap:"10000",//必传,字符串类型
+        nonce: 0,//必传,number类型
+        gasLimit: 2200000,
+        to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",//字符串类型
+        value: "1000000000000000000", // 精度18,字符串类型
+        method: 0,
+        params: ""
+      };
+await window.filecoin.requestSignature(transaction);
 
+```
 For details, please find the sample in this repo.
 
 ### Download Math Wallet 麦子钱包下载
