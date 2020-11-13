@@ -13,7 +13,7 @@
 
         <v-card light class="mt-2" v-if="account">
           <v-card-title>Signature</v-card-title>
-          <v-card-subtitle>{{signature?JSON.stringify(signature):""}}</v-card-subtitle>
+          <v-card-subtitle>{{txId?txId:""}}</v-card-subtitle>
           <v-card-actions>
             <v-btn class="success" @click="requestSignature">Signature</v-btn>
           </v-card-actions>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       account: null,
-      signature: null
+      txId: null
     };
   },
   methods: {
@@ -54,16 +54,17 @@ export default {
       }
       let transaction = {
         from: this.account.address,
-        gasLimit: 10000,
-        gasPrice: 1,
+        gasPremium: "10000",
+        gasFeeCap: "10000",
+        gasLimit:2200000,
         nonce: 0,
         to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",
-        value: 1000000000000000000, // 精度18
+        value: "1000000000000000000", // 精度18
         method: 0,
         params: ""
       };
-      window.filecoin.requestSignature(transaction).then(signature => {
-        this.signature = signature;
+      window.filecoin.requestSignature(transaction).then(txId => {
+        this.txId = txId;
       });
     }
   }
