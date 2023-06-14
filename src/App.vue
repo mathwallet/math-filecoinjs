@@ -71,7 +71,7 @@ export default {
         method: 0,
         params: ""
       };
-      window.filecoin.sendTransaction(transaction).then(signature => {
+      window.filecoin.requestSignature(transaction).then(signature => {
         this.signature = signature;
       });
     },
