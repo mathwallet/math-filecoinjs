@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     logout() {
-      window.filecoin.getAccount().then(() => {
+      window.filecoin.forgetAccount().then(() => {
         this.account = null;
       });
     },
@@ -51,7 +51,7 @@ export default {
         alert("Please install MathWallet first!");
         return;
       }
-      window.filecoin.forgetAccount().then(account => {
+      window.filecoin.getAccount().then(account => {
         this.account = account;
       });
     },
