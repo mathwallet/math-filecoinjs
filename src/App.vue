@@ -51,7 +51,7 @@ export default {
         alert("Please install MathWallet first!");
         return;
       }
-      window.filecoin.getAccount().then(account => {
+      window.filecoin.forgetAccount().then(account => {
         this.account = account;
       });
     },
