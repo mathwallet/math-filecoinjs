@@ -85,7 +85,7 @@ export default {
         gasPremium: "10000",//可选
         gasFeeCap: "10000",//可选
         gasLimit:2200000,
-        nonce: 0,//可选
+        nonce: 0,
         to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",
         value: "1000000000000000000", // 精度18
         method: 0,
