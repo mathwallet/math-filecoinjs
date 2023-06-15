@@ -24,7 +24,7 @@ const transaction =  {
         to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",//String
         value: "1000000000000000000", // decimals 18,String
         method: 0,
-        params: ""
+        params: "" //Optional type(String)
       };
 await window.filecoin.sendTransaction(transaction);
 
@@ -38,7 +38,7 @@ const transaction =  {
         to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",//String
         value: "1000000000000000000", //decimals 18,String
         method: 0,
-        params: ""
+        params: ""//Optional type(String)
       };
 await window.filecoin.requestSignature(transaction);
 
