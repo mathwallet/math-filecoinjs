@@ -19,8 +19,8 @@ const transaction =  {
         from: this.account.address,//account address
         gasPremium: "10000",//Optional type(String)
         gasFeeCap:"10000",//Optional type(String)
-        nonce: 0,//Optional type(Number)
-        gasLimit: 2200000,
+        nonce: 0,        // Number
+        gasLimit: 2200000, //Optional type(Number)
         to: "t1uzmmfknk3pq5otq4wosqtzm3oq7675vb27qz6aq",//String
         value: "1000000000000000000", // decimals 18,String
         method: 0,
