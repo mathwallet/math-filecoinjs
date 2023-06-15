@@ -8,13 +8,13 @@
 
 // login
 // returns { "name": "test1", "address": "t1u3ynne5fllqpv4re5vkqbvowtsb2aggh2p4u5fa"}
-const account = await window.filecoin.login();
+const account = await window.filecoin.getAccount();
 
 // logout
 // returns {}
-await window.filecoin.logout();
+await window.filecoin.forgetAccount();
 
-// SendTransaction
+// Send Transaction
 const transaction =  {
         from: this.account.address,//account address
         gasPremium: "10000",//Optional type(String)
@@ -28,7 +28,7 @@ const transaction =  {
       };
 await window.filecoin.sendTransaction(transaction);
 
-// RequestSignature
+// Request Signature
 const transaction =  {
         from: this.account.address,//account address
         gasPremium: "10000",//String
